@@ -4,7 +4,7 @@ This session is part of [**Biodiversity Genomics Academy 2023**](https://BGA23.o
 
 ## Session Leader(s)
 
-Chiara Bortoluzzi, ETH Zürich, Switzerland
+Chiara Bortoluzzi, ETH Zürich, Switzerland  
 Thiago A.L. Genez, European Bioinformatics Institute, United Kingdom
 
 ## Description
