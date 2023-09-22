@@ -6,6 +6,7 @@ tasks:
     curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
     bash Mambaforge-$(uname)-$(uname -m).sh -b -p /workspace/conda && rm Mambaforge-$(uname)-$(uname -m).sh
     /workspace/conda/bin/mamba init bash
+    
 - name: install cactus
   command: |
   git clone https://github.com/ComparativeGenomicsToolkit/cactus.git --recursive
