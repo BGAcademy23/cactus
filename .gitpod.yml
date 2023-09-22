@@ -15,7 +15,6 @@ tasks:
   virtualenv -p python3 cactus_env
   echo "export PATH=$(pwd)/bin:\$PATH" >> cactus_env/bin/activate
   echo "export PYTHONPATH=$(pwd)/lib:\$PYTHONPATH" >> cactus_env/bin/activate
-  source cactus_env/bin/activate
 
 vscode:
   extensions:
