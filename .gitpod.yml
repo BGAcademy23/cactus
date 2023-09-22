@@ -7,15 +7,6 @@ tasks:
     bash Mambaforge-$(uname)-$(uname -m).sh -b -p /workspace/conda && rm Mambaforge-$(uname)-$(uname -m).sh
     /workspace/conda/bin/mamba init bash
     
-- name: install cactus
-  command: |
-  git clone https://github.com/ComparativeGenomicsToolkit/cactus.git --recursive
-  python3 -m pip install virtualenv
-  cd cactus
-  virtualenv -p python3 cactus_env
-  echo "export PATH=$(pwd)/bin:\$PATH" >> cactus_env/bin/activate
-  echo "export PYTHONPATH=$(pwd)/lib:\$PYTHONPATH" >> cactus_env/bin/activate
-
 vscode:
   extensions:
     - anwar.papyrus-pdf
