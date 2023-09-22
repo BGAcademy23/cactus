@@ -6,8 +6,18 @@ tasks:
     curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
     bash Mambaforge-$(uname)-$(uname -m).sh -b -p /workspace/conda && rm Mambaforge-$(uname)-$(uname -m).sh
     /workspace/conda/bin/mamba init bash
-
-    source ${HOME}/.bashrc
+- name: install cactus
+  command: |
+  git clone https://github.com/ComparativeGenomicsToolkit/cactus.git --recursive
+  python3 -m pip install virtualenv
+  cd cactus
+  virtualenv -p python3 cactus_env
+  echo "export PATH=$(pwd)/bin:\$PATH" >> cactus_env/bin/activate
+  echo "export PYTHONPATH=$(pwd)/lib:\$PYTHONPATH" >> cactus_env/bin/activate
+  source cactus_env/bin/activate
+  python3 -m pip install -U setuptools pip
+  python3 -m pip install -U .
+  python3 -m pip install -U -r ./toil-requirement.txt
 
 vscode:
   extensions:
