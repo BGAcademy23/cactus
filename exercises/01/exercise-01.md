@@ -1,21 +1,20 @@
 # Exercise 01
 
-## Running Cactus-Prepare
+## Cactus Input File
 
-Running EvolverMammals Cactus' example
+Reading EvolverMammals Cactus' example
 
 ```bash
-cd /workspace; mkdir exercise-01;  cd exercise-01;
+cat	/workspace/cactus_install/cactus/examples/evolverMammals.txt
+```
 
-cactus-prepare \
-	/workspace/cactus_install/cactus/examples/evolverMammals.txt \
-	--jobStore jobstore \
-	--outDir working_dir \
-	--outSeqFile working_dir/steps.txt \
-	--outHal working_dir/final_alignment.hal \
-	--preprocessBatchSize 1 \
-	--cactusOptions '--logInfo --retryCount 0' \
-	--blastCores 8 \
-	--alignCores 8 > commands.txt
+Output
+```bash
+((simHuman_chr6:0.144018,(simMouse_chr6:0.084509,simRat_chr6:0.091589)mr:0.271974):0.020593,(simCow_chr6:0.18908,simDog_chr6:0.16303):0.032898);
 
+simCow_chr6 https://raw.githubusercontent.com/ComparativeGenomicsToolkit/cactusTestData/master/evolver/mammals/loci1/simCow.chr6
+simDog_chr6 https://raw.githubusercontent.com/ComparativeGenomicsToolkit/cactusTestData/master/evolver/mammals/loci1/simDog.chr6
+simHuman_chr6 https://raw.githubusercontent.com/ComparativeGenomicsToolkit/cactusTestData/master/evolver/mammals/loci1/simHuman.chr6
+simMouse_chr6 https://raw.githubusercontent.com/ComparativeGenomicsToolkit/cactusTestData/master/evolver/mammals/loci1/simMouse.chr6
+simRat_chr6 https://raw.githubusercontent.com/ComparativeGenomicsToolkit/cactusTestData/master/evolver/mammals/loci1/simRat.chr6
 ```
