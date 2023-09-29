@@ -28,7 +28,7 @@ tasks:
     /workspace/conda/bin/mamba init bash
     wget https://github.com/swsnr/mdcat/releases/download/mdcat-2.0.3/mdcat-2.0.3-x86_64-unknown-linux-musl.tar.gz
     tar -zxvf mdcat-2.0.3-x86_64-unknown-linux-musl.tar.gz
-    export PATH=/workspace/mdcat-2.0.3-x86_64-unknown-linux-musl/mdcat:$PATH'
+    export PATH=/workspace/mdcat-2.0.3-x86_64-unknown-linux-musl/mdcat:$PATH
     rm mdcat-2.0.3-x86_64-unknown-linux-musl.tar.gz
 
     echo 'export LD_LIBRARY_PATH=/workspace/conda/envs/cactus_env/lib/:$LD_LIBRARY_PATH;
