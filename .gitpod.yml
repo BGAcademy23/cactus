@@ -2,16 +2,46 @@ image: gitpod/workspace-base
 
 tasks:
 - name: wget data and install mamba
-  command: |
+  init: |
+    curl -L -O https://sk13.cog.sanger.ac.uk/Coleoptera_36-way_20230217.hal
     curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
     bash Mambaforge-$(uname)-$(uname -m).sh -b -p /workspace/conda && rm Mambaforge-$(uname)-$(uname -m).sh
     /workspace/conda/bin/mamba init bash
+    source ~/.bashrc
+
+    mkdir -p /workspace/cactus_install && cd /workspace/cactus_install
+
+    mamba create -n cactus_env -c conda-forge gxx_linux-64 hdf5 pip zlib icu lxml -y
+    mamba activate  cactus_env
+
+    git clone https://github.com/ComparativeGenomicsToolkit/cactus.git --recursive
+    cd cactus
+    pip install -U .
+    pip install -U -r ./toil-requirement.txt
+
+    export LD_LIBRARY_PATH=/workspace/conda/envs/cactus_env/lib/:$LD_LIBRARY_PATH
+    export C_INCLUDE_PATH=/workspace/conda/envs/cactus_env/include
+    export CPLUS_INCLUDE_PATH=/workspace/conda/envs/cactus_env/include
+    make -j 8
+
+  command: |
+    /workspace/conda/bin/mamba init bash
+
+    echo 'export LD_LIBRARY_PATH=/workspace/conda/envs/cactus_env/lib/:$LD_LIBRARY_PATH;
+    export C_INCLUDE_PATH=/workspace/conda/envs/cactus_env/include;
+    export CPLUS_INCLUDE_PATH=/workspace/conda/envs/cactus_env/include;
+    export PATH=/workspace/cactus_install/cactus/bin:$PATH' >> ~/.bashrc
     
+    source ~/.bashrc
+    conda activate cactus_env
+    
+
 vscode:
   extensions:
     - anwar.papyrus-pdf
 
 workspaceLocation: "/workspace"
+
 
 github:
   prebuilds:
