@@ -2,9 +2,6 @@ image: gitpod/workspace-base
 
 tasks:
 - name: wget data and install mamba
-  init: |
-    cd /workspace
-    curl -L -O https://ftp.ensembl.org/pub/rapid-release/data_files/multi/hal_files/Coleoptera_36-way_20230217.hal
   command: |
     curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
     bash Mambaforge-$(uname)-$(uname -m).sh -b -p /workspace/conda && rm Mambaforge-$(uname)-$(uname -m).sh
