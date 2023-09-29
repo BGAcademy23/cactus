@@ -5,7 +5,7 @@
 Running EvolverMammals Cactus' example
 
 ```bash
-cd /workspace/cactus/exercise/01;
+cd /workspace/cactus/exercises/02;
 
 cactus-prepare \
 	/workspace/cactus_install/cactus/examples/evolverMammals.txt \
